@@ -1,12 +1,16 @@
 {
   "name": "pdf-excel-generator",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "pdf-excel-generator is easy to use downloader for Node.js , it helps you to easily convert your json to PDF or Excel file and download it for you !",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ali-A-Koye/pdf-excel-generator.git"
+  },
+  "keywords": ["excel","pdf","generate","express"],
   "author": "Ali",
   "license": "MIT",
   "dependencies": {
