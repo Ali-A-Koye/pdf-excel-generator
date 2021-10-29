@@ -34,7 +34,7 @@ module.exports = {
       bold: true,
       fontSize: 11,
       alignment: "center",
-      color: "#977755",
+      color: "black",
     },
   },
 };

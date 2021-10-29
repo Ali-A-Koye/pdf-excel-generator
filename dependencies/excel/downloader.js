@@ -1,12 +1,18 @@
 /* eslint-disable new-cap */
 const ExcelJS = require("exceljs");
 const streamBuffers = require("stream-buffers");
-const moment = require("moment")
+
 module.exports = async (
   columns,
   data,
   res,
-  sheetname = `Excel_Generated_${moment().format("YYYY-MM-DD")}`,
+  sheetname = `Excel_Generated_${
+    new Date().getFullYear() +
+    "-" +
+    (new Date().getMonth() + 1) +
+    "-" +
+    new Date().getDate()
+  }`
 ) => {
   const myWritableStreamBuffer = new streamBuffers.WritableStreamBuffer({
     incrementAmount: 10 * 1024,
@@ -55,4 +61,3 @@ module.exports = async (
       console.log(err);
     });
 };
-

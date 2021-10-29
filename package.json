@@ -21,7 +21,6 @@
   "dependencies": {
     "exceljs": "^4.3.0",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1",
     "path": "^0.12.7",
     "pdfmake": "^0.2.2",
     "stream-buffers": "^3.0.2"

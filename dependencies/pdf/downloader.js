@@ -2,7 +2,6 @@
 const pdfMakePrinter = require("pdfmake");
 const path = require("path");
 const streamBuffers = require("stream-buffers");
-const moment = require("moment");
 const _ = require("lodash");
 const { defaultStyle } = require("./style");
 
@@ -10,14 +9,20 @@ module.exports = async (
   columns,
   query,
   res,
-  filename=`PDF_Generated_${moment().format("YYYY-MM-DD")}`,
+  filename = `PDF_Generated_${
+    new Date().getFullYear() +
+    "-" +
+    (new Date().getMonth() + 1) +
+    "-" +
+    new Date().getDate()
+  }`
 ) => {
   let headers = [],
     data = [],
     width = [],
     config = {
       content: [],
-      pageOrientation: 'landscape',
+      pageOrientation: "landscape",
       styles: defaultStyle,
     },
     fontDescriptors = {
@@ -45,16 +50,21 @@ module.exports = async (
   });
   data.unshift(headers);
 
-
   //report date and report range
   config.content.push({
     columns: [
       {
         width: "*",
-        text: `Date : ${moment().format("YYYY-MM-DD")}`,
+        text: `Date : ${
+          new Date().getFullYear() +
+          "-" +
+          (new Date().getMonth() + 1) +
+          "-" +
+          new Date().getDate()
+        }`,
         margin: [0, 30, 0, 8],
         style: "titleStyle",
-      }
+      },
     ],
   });
 
@@ -89,7 +99,7 @@ module.exports = async (
   let doc = printer.createPdfKitDocument(config);
 
   const myReadableStreamBuffer = new streamBuffers.ReadableStreamBuffer({
-    frequency: 10, 
+    frequency: 10,
     chunkSize: 2048,
   });
 
